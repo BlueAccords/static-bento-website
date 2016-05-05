@@ -1,0 +1,187 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+        <!-- cis89images1 - 
+        img, src, width, height, alt, title (image attribute), href, map, area, 
+        shape, coords, figure, figcaption, border, float, margin, .gif, .jpg, .png 
+      -->
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>cis89images1</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Concatenates and minifies css files in gulp -->
+      <!--build:css css/styles.min.css -->
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/style.css">
+      <!--endbuild -->
+    </head>
+    <body>
+      <header>
+        <div class="mobile-nav clearfix">
+            <h2 id="mobile-title" class="mobile-text">Kagutsuchi Bento</h2>
+              <!-- From https://www.iconfinder.com/icons/134216/hamburger_lines_menu_icon,
+              Licensed under http://creativecommons.org/licenses/by-sa/3.0/ -->
+              <!-- <h2 id="mobile-menu-text" class="mobile-text">MENU</h2> -->
+              <button id="hamburger-button" alt="hamburger-menu button"></button>
+
+        </div>
+        <nav class="main-menu slide-menu" id="main-menu">
+          <ul>
+            <button id="slide-menu-close">&larr; Close Menu</button>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Content Here -->
+      <div class="main">
+        <!-- usemap has to equal the map's name attribute -->
+        <figure class="fig-bento-image-map">
+          <img id="bento-image" src="img/ekiben-bento.jpg" title="An ekiben style bento box" border="0" 
+          usemap="#bento-image-map" alt="" />
+          <figcaption>
+            A japanese bento box from Asahikawa station <br>
+            <cite>By shirokazan (Flickr: Ekiben) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons</cite>
+          </figcaption>
+        </figure>
+
+        <!-- Image map made using https://www.image-maps.com/ -->
+        <map name="bento-image-map" id="bento-image-map">
+          <area  alt="Raw Salmon" title="Raw Salmon" shape="rect" coords="213,416,721,629" target="_self"     />
+          <area  alt="Raw Eel" title="Raw Eel" shape="rect" coords="192,632,721,757" target="_self"     />
+          <area  alt="Shredded Crab" title="Shredded Crab" shape="rect" coords="167,765,737,955" target="_self"     />
+          <area  alt="Sweetened Tamago(Eggs)" title="Sweetened Tamago(Eggs)" shape="rect" coords="142,966,722,1077" target="_self"     />
+          <area  alt="Seaweed" title="Seaweed" shape="rect" coords="741,430,1011,695" target="_self"     />
+          <area  alt="Usuyaki Tamago(Thin Omelette)" title="Usuyaki Tamago(Thin Omelette)" shape="rect" coords="1009,462,1419,769" target="_self"     />
+          <area shape="rect" coords="2046,1534,2048,1536" alt="Image Map" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
+          <area  alt="Salmon Roe" title="Salmon Roe" shape="poly" coords="724,1072,717,980,771,816,803,770,795,721,980,714,1040,717,1021,778,1060,796,1034,857,1017,893,1058,918,1091,865,1125,885,1109,933,1103,973,1083,1075,731,1079" target="_self"     />
+          <area  alt="Rice" title="Rice" shape="poly" coords="1066,864,1055,845,1076,803,1129,805,1378,781,1410,839,1433,913,1349,925,1131,927,1126,879,1107,856" target="_self"     />
+          <area  alt="Soy sauce" title="Soy sauce" shape="poly" coords="1636,443,1717,534,1734,564,1706,564,1696,576,1680,564,1678,580,1659,573,1593,481,1589,458,1611,438" target="_self"     />
+          <area  alt="Sushi" title="Sushi" shape="poly" coords="1410,491,1470,817,1521,944,1560,949,1652,855,1680,785,1663,708,1633,665,1622,618,1649,580,1640,544,1556,456,1493,450,1433,463,1411,479" target="_self"     />
+          <area  alt="Gari(Pickled Ginger)" title="Gari(Pickled Ginger)" shape="poly" coords="1647,626,1694,594,1741,576,1779,576,1808,627,1833,791,1755,835,1703,848,1671,871,1664,854,1687,808,1693,765,1671,695,1644,661" target="_self"     />
+          <area  alt="Pickled something(?)" title="Pickled something(?)" shape="poly" coords="1130,933,1100,1070,1412,1074,1418,930" target="_self"     />
+          <area  alt="Pickled something(?)" title="Pickled something(?)" shape="poly" coords="1666,897,1699,993,1651,1064,1790,1064,1871,973,1851,875,1799,858,1727,844,1695,851" target="_self"/>
+        </map>
+
+        <div class="text-content clearfix">
+          <div class="content-box">
+            <h3 class="content-title">What Is A Bento?</h3>
+            <p class="content-text">Bento (written 弁当), or obento (お弁当) to use the honorific term, is the Japanese word for a meal served in a box.</p>
+
+            <p>Beyond that basic definition though, just about anything goes as to what kind of box or container is used, as well as what is put inside that box.</p>
+            <cite>from <a href="http://justbento.com/handbook/bento-basics">justbento.com</a></cite>
+          </div>
+          <div class="content-box">
+            <h3 class="content-title">When Are Bento Usually Eaten?</h3>
+            <p class="content-text">Besides feeding people at school or work, bento are also consumed on picnics, as well as in private homes and at parties, where they offer a convenient means of extending simple hospitality or serving large numbers of people </p>
+            <p>
+            In Japan, some schools provide lunch to the students, while others require students to bring their own lunches. In the latter case, the students' mothers usually prepare the lunches. However, some of the more industrious students like to make their lunches themselves. The custom of bringing lunch from home is quite prevalent not only among students but also among working adults.
+            </p>
+            <cite>from <a href="http://web-japan.org/kidsweb/virtual/bento/bento03.html">web-japan.org</a></cite>
+          </div>
+          <div class="content-box">
+            <h3 class="content-title">What's Inside Of A Bento?</h3>
+            <p class="content-text">Half of a typical bento consists of rice, and the other half consists of several side dishes made with such ingredients as vegetables, meat, fish, and eggs. This format allows for infinite variations.</p>
+            <p>
+            The most common side dish is some kind of cooked egg, such as tamagoyaki (omelette strips or squares cooked typically with salt and sugar), fried eggs, scrambled eggs, and omelets with various ingredients. Another perennial bento favorite is sausage.</p>
+            <cite>from <a href="http://web-japan.org/kidsweb/virtual/bento/bento01.html">web-japan.org</a></cite>
+          </div>
+          
+        </div>
+
+        <h1>Bento Boxes</h1>
+        <div class="gallery clearfix">
+          <figure class="bento-figure">
+            <img src="img/Ekiben_ATM.jpg" alt="Ekiben Amarube Tekkyou Monogatari Bento">
+            <figcaption>
+            Ekiben "Amarube Tekkyou Monogatari Bento <br>
+            <cite>By Cassiopeia sweet (Photo by Cassiopeia sweet.) [CC0], via Wikimedia Commons</cite>
+            </figcaption>
+          </figure>
+        
+          
+          <figure class="bento-figure">
+              <img src="img/Ekiben-Kyoto.jpg" alt="Ekiben Kyoto Bento">
+              <figcaption>
+              Kyoto Style Ekiben Bento<br>
+              <cite>By rhosoi (駅弁 嵯峨野寿司) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons, No Changes Made</cite>
+              </figcaption>
+            </figure>
+
+            <figure class="bento-figure">
+              <img src="img/Kushiro-Gyosyo.jpg" alt="Kushiro Gyosyo Bento">
+              <figcaption>
+              Kushiro Gyosyo Bento<br>
+              <cite>By User:欅 (User:欅) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons, No Changes Made</cite>
+              </figcaption>
+            </figure>
+
+            <figure class="bento-figure">
+              <img src="img/Kurimeshi.jpg" alt="Kurimeshi Bento">
+              <figcaption>
+              Kurimeshi Bento<br>
+              <cite>By The original uploader was Naru-W at Japanese Wikipedia (Transferred from ja.wikipedia to Commons.) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons, No Changes Made</cite>
+              </figcaption>
+            </figure>
+
+            <figure class="bento-figure">
+              <img src="img/Steak-Bento-Hokkaido.jpg" alt="Steak Bento, Ikeda station (Hokkaido)">
+              <figcaption>
+              Steak Bento, Ikeda station (Hokkaido) <br>
+              <cite>By 欅 (欅 (talk)) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons, No Changes Made</cite>
+              </figcaption>
+            </figure>
+
+            <figure class="bento-figure">
+              <img src="img/Tochikuken_kashiwameshi.jpg" alt="Kashiwameshi (Bento sold in Orio Station)">
+              <figcaption>
+              Kashiwameshi (Bento sold in Orio Station)<br>
+              <cite>By me(Muyo) (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</cite>
+              </figcaption>
+            </figure>
+            
+            <figure class="bento-figure">
+              <img src="img/otemoto.jpg" alt="Otemoto Bento">
+              <figcaption>
+              御手茂沓 (O-te-mo-to) おてもと Bento<br>
+              <cite>By Photocapy (The advantages of rail travel) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons</cite>
+              </figcaption>
+            </figure>
+            
+            <figure class="bento-figure">
+              <img src="img/fukagawa-meshi.jpg" alt="Fukawaga Meshi Bento">
+              <figcaption>
+              Fukagawa Meshi Bento <br>
+              <cite>By Yamaguchi Yoshiaki from Japan (Hukagawa meshi / 深川めし) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons, No Changes Made</cite>
+              </figcaption>
+            </figure>
+
+          </div>
+      </div>
+      
+      <!-- Javascript files -->
+      <!-- Use gulp-useref to concatenate files -->
+
+      <!-- Builds js files and concatenates and minifies them to js/main.min.js directory -->
+      <!--build:js js/main.min.js -->
+
+      <!-- Javascript plugin used to make responsive image maps -->
+      <!-- Source: https://github.com/davidjbradshaw/image-map-resizer -->
+      <script src="js/lib/imageMapResizer.min.js"></script>
+
+      <!-- Main js file -->
+      <script src="js/main.js"></script>
+
+      <!-- endbuild -->
+
+      <!-- Function call to make image-map responsive -->
+      <script>
+        imageMapResize("map#bento-image-map");
+      </script>
+    </body>
+    </html>
+
+

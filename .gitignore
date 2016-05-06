@@ -70,3 +70,7 @@ Temporary Items
 
 # production files(easily generated using gulp)
 dist
+
+# compiled css files
+app/css/*
+app/css/maps/*

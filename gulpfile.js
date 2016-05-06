@@ -129,7 +129,7 @@ var fontsPath = './app/fonts/**/*';
 var imageminOptions = {
       optimizationLevel : 3,     // default of 3, range 1-7
       progressive       : true, // jpg, progressive conversoin vs lossless(false) by default
-      interlaced        : false, // gif, Interlace gif for progressive rendering
+      interlaced        : true, // gif, Interlace gif for progressive rendering
       multipass         : false, // svg, Optimize svg multiple times until it's fully optimized.
 };
 

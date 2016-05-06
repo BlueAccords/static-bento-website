@@ -6,7 +6,7 @@ body, * {
 }
 
 body {
-  background-color: $light-dark;
+  background-color: $white;
 }
 
 
@@ -39,7 +39,6 @@ header {
   /* http://phrogz.net/CSS/vertical-align/index.html */
   /* http://jsfiddle.net/techsin/FAwku/1/ */
   line-height: 2em;
-
   color: $white;
 }
 
@@ -59,17 +58,38 @@ header {
 /* hamburger-menu icon*/
 #hamburger-button {
   /*Set image button to be an image*/
-  background: url(../img/ham-menu.svg) no-repeat;
-  height: 2rem;
-  width: 2rem;
+  // background: url(../img/ham-menu.svg) no-repeat;
+  // height: 2rem;
+  // width: 2rem;
   cursor:pointer;
-  border:none;
+  // border:none;
 
   /* Float right side of screen */
   float: right;
   vertical-align: middle;
+  
+  // Stabalize color to match header bg color
+  // and have no extra borders
+  background-color: $main;
+  border: none;
+
+
+  // Hamburger menu
+  .icon-bar {
+    margin: 0 auto 3px;
+    background-color: $white;
+    display: block;
+    width: 22px;
+    height: 5px;
+    border-radius: 1px;
+  }
 
   /* Eliminate button styling on click */
+  &:focus {
+    outline: none;
+    // Used to make bg the same as header color so color doesnt change to default of white
+    background-color: $main;
+  }
   &:hover {   
     cursor:pointer;
     outline: none;
@@ -80,6 +100,7 @@ header {
     cursor:pointer;
     outline: none;
     border:none;
+    appearance: button;
   }
 }
 
@@ -87,8 +108,10 @@ header {
 
 /* Mobile Menu */
 #main-menu {
-  /*display: none;*/
+  // color
+  background-color: $main;
   
+
   /* Set position to fixed so it'll be on top of other elements */
   position: fixed;
 
@@ -98,7 +121,6 @@ header {
   
   /* 200 so it'll be on top of all other elements(unless another element has a higher z index*/
   z-index: 200;
-  background-color: $main;
 
   /* Add 0.3s delay to transform transition*/
   transition: transform 0.3s;
@@ -125,15 +147,13 @@ header {
 
   li {
     text-align: center;
-    /*border-top: solid 1px #b5dbe9;
-    border-bottom: solid 1px #3184a1;*/
   }
 }
 
 // Styling for slide-menu close button
 #slide-menu-close-btn {
   color: #fff;
-  background-color: #3184a1;
+  background-color: $main-light;
   border: none;
   display: block;
   padding: 12px 24px;
@@ -156,6 +176,7 @@ figure.fig-bento-image-map {
 /* figure caption */
 figure.fig-bento-image-map figcaption {
   margin-top: 1rem;
+  display: inline-block;
 }
 
 /* Attribution for image */
@@ -183,6 +204,10 @@ img#bento-image {
 
 
 /* Text Content =========================================================== */
+
+.content-box {
+}
+
 .text-content {
   text-align: center;
 }
@@ -195,11 +220,15 @@ img#bento-image {
 }
 
 .content-text {
-  background-color: $white;
+  background-color: $dark;
   padding: .5rem;
+  
+  min-height: 20rem;
+  border-bottom: 4px solid $main;
 
   // Used to make text right below the header text
   p {
+    color: $light;
     margin-top: 0;
   }
 }

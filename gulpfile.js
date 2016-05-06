@@ -112,6 +112,9 @@ var sassOptions = {
   outputStyle: 'expanded'
 };
 
+// sass production options
+var sassProdOptions = { outputStyle: 'compressed' };
+
 // Source maps destination(relative to sass files), optional
 var sMapOutput = './maps'
 
@@ -161,6 +164,18 @@ gulp.task('sass', function() {
     .pipe(sourcemaps.init()) // initialize sourcemaps
     .pipe(sass(sassOptions).on('error', sass.logError)) // convert to css from sass
     .pipe(sourcemaps.write()) // write source maps inline(by default) or to relative path of gulp.dest
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(gulp.dest('app/css')) // output to app/css folder
+    .pipe(browserSync.reload({ // browserSync reloads the browser/devices
+      stream: true
+    }))
+});
+
+// compile sass without source maps
+gulp.task('sassProd', function() {
+  // Matches any scss/sass files in the scss directory and its child directories
+  return gulp.src(sassPath)
+    .pipe(sass(sassProdOptions)) // convert to css from sass
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest('app/css')) // output to app/css folder
     .pipe(browserSync.reload({ // browserSync reloads the browser/devices
@@ -284,7 +299,7 @@ gulp.task('clean:cache', function (cb) {
 gulp.task('build', function(callback) {
   // runSync used to clean dist folder FIRST THEN moves all files there
   runSync('clean:dist',
-    ['sass', 'minify', 'images', 'fonts'],
+    ['sassProd', 'minify', 'images', 'fonts'],
     callback)
 });
 
@@ -292,7 +307,7 @@ gulp.task('build', function(callback) {
 gulp.task('build:server', function(callback) {
   // runSync used to clean dist folder FIRST THEN moves all files there
   runSync('clean:dist', 
-    ['sass', 'minify', 'images', 'fonts'], 
+    ['sassProd', 'minify', 'images', 'fonts'], 
     'browserSyncDist', 
     callback)
 });

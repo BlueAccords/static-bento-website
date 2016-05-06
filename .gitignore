@@ -72,5 +72,5 @@ Temporary Items
 dist
 
 # compiled css files
-app/css/*
+app/css/*.css
 app/css/maps/*

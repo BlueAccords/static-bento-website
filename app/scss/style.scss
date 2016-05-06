@@ -4,10 +4,6 @@ body, * {
   box-sizing: border-box;
 }
 
-.testing {
-  width: percentage(1/7);
-}
-
 .clearfix {
   /* Clearfix */
   overflow: hidden;
@@ -36,12 +32,9 @@ header {
   line-height: 2em;
 }
 
-.mobile-text {
-  margin: 0 auto;
-}
-
 #mobile-title {
-  float: left;
+    margin: 0 auto;
+    float: left;
 }
 
 /* hamburger-menu icon*/
@@ -52,33 +45,28 @@ header {
   width: 2rem;
   cursor:pointer;
   border:none;
-  
+
   /* Float right side of screen */
   float: right;
   vertical-align: middle;
-  
- 
+
+  /* Eliminate button styling on click */
+  &:hover {   
+    cursor:pointer;
+    outline: none;
+    border:none;
+  }
+
+  &:active {   
+    cursor:pointer;
+    outline: none;
+    border:none;
+  }
 }
 
-/* Eliminate button styling on click */
-#hamburger-button:hover  
-{   
-  cursor:pointer;
-  outline: none;
-  border:none;
-}
+/* Navigation*/
 
-#hamburger-button:active
-{   
-  cursor:pointer;
-  outline: none;
-  border:none;
-}
-
-
-
-/* Actual Navigation*/
-/* nav tag*/
+/* Mobile Menu */
 #main-menu {
   /*display: none;*/
   
@@ -102,21 +90,29 @@ header {
   overflow-y: scroll;
 
   transform: translateX(-100%);
+
+  // Show mobile menu on screen after .is-active class is added to it via js event
+  &.is-active {
+    transform: translateX(0);
+  }
+  
+  // Mobile Menu list styling
+  ul {
+    /* Eliminate styling*/
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    text-align: center;
+    /*border-top: solid 1px #b5dbe9;
+    border-bottom: solid 1px #3184a1;*/
+  }
 }
 
-#main-menu.is-active {
-  transform: translateX(0);
-}
-
-.slide-menu ul {
-
-  /* Eliminate styling*/
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#slide-menu-close {
+// Styling for slide-menu close button
+#slide-menu-close-btn {
   color: #fff;
   background-color: #3184a1;
   border: none;
@@ -124,16 +120,6 @@ header {
   padding: 12px 24px;
   width: 100%;
 }
-
-
-
-.slide-menu,
-.slide-menu li{
-  text-align: center;
-  /*border-top: solid 1px #b5dbe9;
-  border-bottom: solid 1px #3184a1;*/
-}
-
 
 /* Main content */
 .main {

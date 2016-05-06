@@ -16,7 +16,7 @@ var slideLeftBtn = document.querySelector('#hamburger-button');
 var slideMenu = document.querySelector('#main-menu');
 
 // Close menu btn
-var closeMenuBtn = document.querySelector('#slide-menu-close');
+var closeMenuBtn = document.querySelector('#slide-menu-close-btn');
 
 // Opens menu when open btn is clicked
 slideLeftBtn.addEventListener('click', function(e) {

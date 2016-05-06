@@ -181,6 +181,12 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
   gulp.watch(htmlPath, browserSync.reload);
   gulp.watch(jsPath, browserSync.reload)
   // Other tasks here
+  
+  // log a message in the console on change
+  .on('change', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+  });
+
 });
 
 // Browser sync server/auto refresh browsers and devices

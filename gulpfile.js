@@ -26,9 +26,6 @@
 // Runs gulp build
 // Hosts a server via browser-sync
 
-
-
-
 // Node module requirements
 var gulp        = require('gulp');
 
@@ -61,6 +58,13 @@ var del         = require('del');
 
 // Used to run tasks synchronously
 var runSync     = require('run-sequence');
+
+// Source maps for debugging live css/js
+var sourcemaps  = require('gulp-sourcemaps');
+
+// Auto prefixer for css prefixes
+var autoprefixer = require('gulp-autoprefixer');
+
 // ======================== Gulp Tasks Examples ===============================
 
 // Example Gulp Task ==========================================================
@@ -94,13 +98,70 @@ var runSync     = require('run-sequence');
 
 // ============================== End Examples ================================
 
+// ============================== Config Options ==============================
+
+// Input directory
+var devDir = 'app';
+
+// Output production directory
+var prodDir = 'dist';
+
+// sass compiling options
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
+};
+
+// Source maps destination(relative to sass files), optional
+var sMapOutput = './maps'
+
+// Development paths for all the main html/js/sass/scss and image files
+var cssPath  = './app/**/*.css';
+var sassPath = './app/scss/**/*.+(scss|sass)';
+var htmlPath = './app/*.html';
+var jsPath   = './app/js/**/*.js';
+var imgPath  = './app/img/**/*.+(jpg|jpeg|png|svg|gif)';
+var fontsPath = './app/fonts/**/*';
+
+// Production Paths
+
+// Imagemin optimization options
+var imageminOptions = {
+      optimizationLevel : 3,     // default of 3, range 1-7
+      progressive       : true, // jpg, progressive conversoin vs lossless(false) by default
+      interlaced        : false, // gif, Interlace gif for progressive rendering
+      multipass         : false, // svg, Optimize svg multiple times until it's fully optimized.
+};
+
+// Autoprefixer options
+// Defaults:
+// Browsers with over 1% market share,
+// Last 2 versions of all browsers,
+// Firefox ESR,
+// Opera 12.1
+// More info here
+// https://github.com/ai/browserslist#queries
+var autoprefixerOptions = {
+   browsers: ['last 2 versions', '> 2%', 'Firefox ESR']
+}
+
+
+// ============================== End Options ================================
+
+
 // Compiles scss into css for development folder
+// adds source maps
+// adds vendor prefixes automatically
+// reloads browsersync
 // More options here:
 // https://github.com/sass/node-sass#options
 gulp.task('sass', function() {
   // Matches any scss/sass files in the scss directory and its child directories
-  return gulp.src('app/scss/**/*.+(scss|sass)') 
-    .pipe(sass().on('error', sass.logError)) // convert to css from sass
+  return gulp.src(sassPath)
+    .pipe(sourcemaps.init()) // initialize sourcemaps
+    .pipe(sass(sassOptions).on('error', sass.logError)) // convert to css from sass
+    .pipe(sourcemaps.write()) // write source maps inline(by default) or to relative path of gulp.dest
+    .pipe(autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest('app/css')) // output to app/css folder
     .pipe(browserSync.reload({ // browserSync reloads the browser/devices
       stream: true
@@ -114,11 +175,11 @@ gulp.task('sass', function() {
 gulp.task('watch', ['browserSync', 'sass'], function() {
 
   // Watches the scss directory for changes and runs the sass task
-  gulp.watch('app/scss/**/*.+(scss|sass)', ['sass']);
+  gulp.watch(sassPath, ['sass']);
 
   // Watch html/js files for changes and reloads the browser
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload)
+  gulp.watch(htmlPath, browserSync.reload);
+  gulp.watch(jsPath, browserSync.reload)
   // Other tasks here
 });
 
@@ -128,7 +189,7 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'app'
+      baseDir: devDir
     },
   })
 });
@@ -138,7 +199,7 @@ gulp.task('browserSyncDist', function() {
   console.log('running dist server');
   browserSync.init({
     server: {
-      baseDir: 'dist'
+      baseDir: prodDir
     },
   })
 });
@@ -158,7 +219,7 @@ gulp.task('browserSyncDist', function() {
 // css minify
 // https://www.npmjs.com/package/gulp-cssnano
 gulp.task('minify', function() {
-  return gulp.src('app/*.html')
+  return gulp.src(htmlPath)
     .pipe(useref())
     // Only uglifies/minifies if it's a js file
     .pipe(gulpIf('*.js', uglify()))
@@ -167,7 +228,7 @@ gulp.task('minify', function() {
     .pipe(gulpIf('*.css', cssnano()))
 
     // outputs to dist/production folder
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(prodDir))
 });
 
 // Optimize/compress images using gulp-imagemin
@@ -177,20 +238,33 @@ gulp.task('minify', function() {
 // https://github.com/sindresorhus/gulp-imagemin
 gulp.task('images', function() {
   // Gets all the img files in the img folder
-  return gulp.src('app/img/**/*.+(jpg|jpeg|png|svg|gif)')
+  return gulp.src(imgPath)
 
     // uses gulp-imageMin to optimize/compress images
     // Currently set to default values of false/3
     // Cache makes sure imagemin is only ran on changed files
-    .pipe(cache(imagemin({
-      optimizationLevel : 3,     // default of 3, range 1-7
-      progressive       : true, // jpg, progressive conversoin vs lossless(false) by default
-      interlaced        : false, // gif, Interlace gif for progressive rendering
-      multipass         : false, // svg, Optimize svg multiple times until it's fully optimized.
-    })))
+    .pipe(cache(imagemin(imageminOptions)))
 
     // Outputs to the production images folder
     .pipe(gulp.dest('dist/img'))
+});
+
+// auto prefixer to add css prefixes
+// https://github.com/ai/browserslist#queries
+gulp.task('prefix', function() {
+  gulp.src(cssPath)
+})
+
+
+// Transfer font files from dev to production
+gulp.task('fonts', function() {
+  return gulp.src(fontsPath)
+    .pipe(gulp.dest('dist/fonts'))
+});
+
+// Delete production files before tasks are ran
+gulp.task('clean:dist', function() {
+  return del.sync(prodDir)
 });
 
 // Used to clear images cache on local filesystem
@@ -198,16 +272,6 @@ gulp.task('clean:cache', function (cb) {
   return cache.clearAll(cb)
 });
 
-// Transfer font files from dev to production
-gulp.task('fonts', function() {
-  return gulp.src('app/fonts/**/*')
-    .pipe(gulp.dest('dist/fonts'))
-});
-
-// Delete production files before tasks are ran
-gulp.task('clean:dist', function() {
-  return del.sync('dist')
-});
 
 // Build system, cleans production folder, minify/concat files, compile sass
 // optimize images, move fonts from dev to production folder

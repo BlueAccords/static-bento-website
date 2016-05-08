@@ -72,5 +72,9 @@ Temporary Items
 dist
 
 # compiled css files
+# First: Delete the file from the repository cache git rm --cached path/file 
+#   git rm --cached path/file
+# Second: Add the ignore rule to your .gitignore file 
+#   Below V
 app/css/*.css
 app/css/maps/*

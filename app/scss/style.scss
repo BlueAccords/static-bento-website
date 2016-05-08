@@ -214,14 +214,15 @@ img#bento-image {
 }
 
 .content-title {
-  color: $white;
+  color: $black;
   margin-bottom: 0;
   padding: 1.5rem;
-  background-color: $main;
+  background-color: $gray-light;
+  border-bottom: 2px solid $black;
 }
 
 .content-text {
-  background-color: $dark;
+  background-color: $gray-light;
   padding: .5rem;
   
   min-height: 20rem;
@@ -229,7 +230,7 @@ img#bento-image {
 
   // Used to make text right below the header text
   p {
-    color: $light;
+    color: $gray-dark;
     margin-top: 0;
   }
 }

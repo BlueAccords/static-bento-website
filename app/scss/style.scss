@@ -244,10 +244,21 @@ img#bento-image {
 /* Image Gallery */
 .bento-figure {
   margin: 0 auto;
+  // overflow: hidden;
+}
+
+// Used to set images to static sizes
+.bento-figure-crop {
+  display: block;
+  height: 310px;
+  overflow: hidden;
 }
 
 .bento-figure img{
-  max-width: 100vw;
+  // Used to center image
+  display: block;
+  width: 90%;
+  height: auto;
   margin: 0 auto;
   padding: 0;
 }

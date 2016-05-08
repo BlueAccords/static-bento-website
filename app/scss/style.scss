@@ -30,6 +30,14 @@ header {
 
 /* Header Navigation */
 
+// Use this to set a max-width for inner elements while having 
+// header bar extend the entire screen width
+.header-crop {
+  // max-width: 1200px;
+  // margin: 0 auto;
+
+}
+
 /* Mobile only Navigation bar */
 .mobile-nav {
   padding:.75rem .5rem;
@@ -62,6 +70,7 @@ header {
   // background: url(../img/ham-menu.svg) no-repeat;
   // height: 2rem;
   // width: 2rem;
+  margin-top: 4px;
   cursor:pointer;
   // border:none;
 
@@ -207,18 +216,23 @@ img#bento-image {
 /* Text Content =========================================================== */
 
 .content-box {
+  margin: 0 auto;
+  background-color: $gray-light;
+  margin-top: 2rem;
 }
 
 .text-content {
+  margin-top: 2rem;
   text-align: center;
 }
 
 .content-title {
   color: $black;
-  margin-bottom: 0;
+  margin: 0 auto;
   padding: 1.5rem;
   background-color: $gray-light;
-  border-bottom: 2px solid $black;
+  // border-bottom: 2px solid $black;
+  border-top: 4px solid $main;
 }
 
 .content-text {
@@ -226,7 +240,6 @@ img#bento-image {
   padding: .5rem;
   
   min-height: 20rem;
-  border-bottom: 4px solid $main;
 
   // Used to make text right below the header text
   p {
@@ -236,6 +249,8 @@ img#bento-image {
 }
 
 .content-box cite {
+  display: block;
+  margin-bottom: 1rem;
   color: #A3A3A3;
   font-size: .75em;
 }
@@ -247,10 +262,12 @@ img#bento-image {
   // overflow: hidden;
 }
 
-// Used to set images to static sizes
+// Used to set images to static sizes 
 .bento-figure-crop {
   display: block;
-  height: 310px;
+  height: 9rem;
+  // Used so images overflow outside the container(but its hidden) 
+  // so aspect raito is maintained
   overflow: hidden;
 }
 
@@ -282,6 +299,19 @@ and (min-device-width : 220px) {
     width: 80vw;
     /*transform: translateX(-300px);*/
   }
+
+  // Bento figures
+  .bento-figure-crop {
+    min-height: 14rem;
+  }
+
+  .bento-figure img {
+    position: relative;
+    // ITs actually possible to position the crop
+    // using top/bottom/left/right + pxs
+    // but this has to be done on an individual level per image
+    // otherwise the results are varied
+  }
 }
  
 /* =iPads (portrait and landscape), 2 row gallery layout
@@ -304,12 +334,24 @@ and (min-device-width : 600px) {
     /*transform: translateX(-300px);*/
   }
 
+  // Text Content Box
+  .content-box {
+    max-width: 30rem;
+  }
+
   /* Image Gallery */
   .bento-figure {
     margin: 0 auto;
     width: 45%;
+    height: 25rem;
     float: left;
     margin: 1rem 2.5%;
+  }
+
+  // Bento figures
+  .bento-figure-crop {
+    min-height: 14rem;
+    // max-height: 16rem;
   }
 
   .bento-figure img{
@@ -319,16 +361,21 @@ and (min-device-width : 600px) {
     padding: 0;
   }
 
-  /*Text Content */
-  .text-content {
-    margin: 0 2.5%;
-  }
 
 }
 
 /* 3 row gallery layout */
 @media only screen
 and (min-width : 900px) {
+
+  // info content
+  .content-box {
+    margin: 0 auto;
+    width: 45%;
+    float: left;
+    margin: 1rem 2.5%;
+  }
+
   /* Image Gallery */
   .bento-figure {
     /* TODO: fix 3s layout broken*/
@@ -338,11 +385,10 @@ and (min-width : 900px) {
     margin: 1rem 1%;
   }
 
-  .content-box {
-    margin: 0 auto;
-    width: 45%;
-    float: left;
-    margin: 1rem 2.5%;
+  // Bento figures
+  .bento-figure-crop {
+    min-height: 12rem;
+    // max-height: 16rem;
   }
 }
  

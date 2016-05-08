@@ -153,6 +153,8 @@ header {
   &.is-active {
     transform: translateX(0);
   }
+
+
   
   // Mobile Menu list styling
   ul {
@@ -163,14 +165,29 @@ header {
   }
 
   li {
+    margin: 1rem 0;
     text-align: center;
+  }
+
+  // Mobile menu link styling
+  li a {
+    &:visited,
+    &:link {
+      color: $white;
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      color: darken($white, 15%);
+    }
   }
 }
 
 // Styling for slide-menu close button
 #slide-menu-close-btn {
   color: #fff;
-  background-color: $main-light;
+  background-color: darken($main, 15%);
   border: none;
   display: block;
   padding: 12px 24px;

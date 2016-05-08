@@ -7,6 +7,7 @@ body, * {
 }
 
 body {
+  margin: 0;
   background-color: $white;
 }
 
@@ -116,6 +117,12 @@ header {
 
 /* Navigation*/
 
+// Desktop Menu
+.desktop-menu {
+  display: none;
+}
+
+
 /* Mobile Menu */
 #main-menu {
   // color
@@ -213,6 +220,37 @@ img#bento-image {
 }
 
 
+// Quote section
+
+.quote-section {
+  
+  margin: 0 auto;
+  margin-top: 2rem;
+
+  .quote-figure {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+
+  img {
+    // Center image
+    margin:0 auto;
+    display: block;
+  }
+
+  cite {
+    color: #A3A3A3;
+    display: block;
+    text-align: center;
+  }
+}
+
+
 /* Text Content =========================================================== */
 
 .content-box {
@@ -257,6 +295,14 @@ img#bento-image {
 
 
 /* Image Gallery */
+
+.gallery-title {
+  color: $white;
+  padding: .5rem;
+  background-color: $main;
+  width: 100%;
+}
+
 .bento-figure {
   margin: 0 auto;
   // overflow: hidden;
@@ -290,6 +336,19 @@ img#bento-image {
   color: #A3A3A3;
   font-size: .75em;
 }
+
+
+// Footer
+footer {
+  font-size: .75rem;
+  background-color: $main;
+  color: $gray-light;
+  text-align: center;
+  padding: .5rem;
+}
+
+
+/* ======================== Media Queries ================================= */
 
 /* =Smartphones (portrait and landscape)
 --------------------------------------------------------------------------- */
@@ -367,6 +426,42 @@ and (min-device-width : 600px) {
 /* 3 row gallery layout */
 @media only screen
 and (min-width : 900px) {
+  // Desktop Menu
+  .desktop-menu {
+    display: block;
+
+    ul {
+    /* Eliminate styling*/
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+
+    li {
+      float: right;
+      margin-left: 1rem;
+      display: inline-block;
+    }
+  }
+
+  .desktop-menu li a {
+    &:visited,
+    &:link {
+      color: $white;
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      color: darken($white, 15%);
+    }
+  }
+
+  // Hamburger menu
+  #hamburger-button {
+    display: none;
+  }
+
 
   // info content
   .content-box {

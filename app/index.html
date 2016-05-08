@@ -3,7 +3,7 @@
 <head>
         <!-- cis89images1 - 
         img, src, width, height, alt, title (image attribute), href, map, area, 
-        shape, coords, figure, figcaption, border, float, margin, .gif, -min.jpg, .png 
+        shape, coords, figure, figcaption, border, float, margin, .gif, .jpg, .png 
       -->
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -27,12 +27,26 @@
                 <!-- From https://www.iconfinder.com/icons/134216/hamburger_lines_menu_icon,
                 Licensed under http://creativecommons.org/licenses/by-sa/3.0/ -->
                 <!-- <h2 id="mobile-menu-text" class="mobile-text">MENU</h2> -->
+
+            <!-- Desktop nav menu -->
+            <nav class="desktop-menu">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">About</a></li>
+              </ul>
+            </nav>
+
+            <!-- Hamburger button -->
             <button id="hamburger-button" alt="hamburger-menu button">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
           </div>
+
+          <!-- Mobile/tablet-only nav menu -->
           <nav class="main-menu slide-menu" id="main-menu">
             <ul>
               <button id="slide-menu-close-btn">&larr; Close Menu</button>
@@ -75,6 +89,14 @@
           <area  alt="Pickled something(?)" title="Pickled something(?)" shape="poly" coords="1666,897,1699,993,1651,1064,1790,1064,1871,973,1851,875,1799,858,1727,844,1695,851" target="_self"/>
         </map>
 
+        <article class="quote-section">
+          <h2 class="sm-100 med-50 lg-75">Variety is the spice of life</h2>
+          <figure class-"quote-figure">
+            <img src="img/bento-gif.gif" alt="animated bento box gif">
+            <cite>source: http://www.miacjensen.com/2012/08/bento-boxes.html</cite>
+          </figure>
+        </article>
+
         <div class="text-content clearfix">
           <div class="content-box">
             <h3 class="content-title">What Is A Bento?</h3>
@@ -108,7 +130,7 @@
           
         </div>
 
-        <h1>Bento Boxes</h1>
+        <h1 class="gallery-title">Bento Boxes</h1>
         <div class="gallery clearfix">
           <figure class="bento-figure">
             <div class="bento-figure-crop">
@@ -194,6 +216,9 @@
             </figure>
 
           </div>
+
+          <!-- Footer -->
+          <footer>Copyright 2016 Ryan Tran</footer>
       </div>
       
       <!-- Javascript files -->

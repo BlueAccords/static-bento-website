@@ -339,7 +339,11 @@ img#bento-image {
   overflow: hidden;
   
   // Used to darken images on hover
-  background-color: #000;
+  // background-color: #000;
+
+  // // Used to fix image changing size upon hover
+  // backface-visibility: hidden;
+  // transform: translate3d(0,0,0);
 }
 
 .bento-figure img{
@@ -351,11 +355,11 @@ img#bento-image {
   padding: 0;
 
   // Darken images on hover
-  transition: all .25s linear;
+  // transition: opacity .25s linear;
 
-  &:hover {
-    opacity: 0.7;
-  }
+  // &:hover {
+  //   opacity: 0.7;
+  // }
 }
 
 .bento-figure figcaption {
